@@ -12,7 +12,7 @@ public class OrderItem {
     @Column(name = "buy_qty")
     private Long qty;
 
-    @Column(name = "product_id",nullable = false)
+    @Column(name = "product_id", nullable = false, insertable = false, updatable = false)
     private Long productId;
 
     @ManyToOne
@@ -20,6 +20,7 @@ public class OrderItem {
     private Order order;
 
     @ManyToOne
+    @JoinColumn(name = "product_id", insertable = false, updatable = false)
     private Product product;
 
     public Long getId() {
